@@ -18,7 +18,8 @@ sg_alb_name = "tnube-alb-sg-tf"
 sg_alb_ext_name = "tnube-alb-sg-ext-tf"
 
 ## Instance ##
-ami = "ami-02fe94dee086c0c37"
+# ami amazon linux 2 #
+ami = "ami-047a51fa27710816e"
 flavor = "t2.micro"
 instance_port = "80"
 instance_count = "1"
@@ -35,7 +36,7 @@ health_check_protocol = "HTTP"
 
 instance_sg_ext_rules = [
   { type = "ingress", protocol = "all", from_port = -1, to_port = -1, cidr_blocks = "10.0.0.0/16", description = "External ingress" },
-  { type = "egress", protocol = "all", from_port = 0, to_port = 0, cidr_blocks = "0.0.0.0/0", description = "External ingress" },
+  { type = "egress", protocol = "all", from_port = 0, to_port = 0, cidr_blocks = "0.0.0.0/0", description = "External egresss" },
 ]
 
 instance_sg_rules = [
@@ -45,7 +46,7 @@ instance_sg_rules = [
 
 alb_sg_ext_rules = [
   { type = "ingress", protocol = "tcp", from_port = 80, to_port =80, cidr_blocks = "0.0.0.0/0", description = "External ingress" },
-  { type = "egress", protocol = "all", from_port = 0, to_port = 0, cidr_blocks = "0.0.0.0/0", description = "External ingress" },
+  { type = "egress", protocol = "all", from_port = 0, to_port = 0, cidr_blocks = "0.0.0.0/0", description = "External egress" },
 ]
 
 alb_sg_rules = [
